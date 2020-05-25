@@ -15,6 +15,6 @@ if (!$conn) {
 
     die('Could not connect: ' . mysqli_connect_error());
 }
-echo "connection succesful";
+echo "connection successful";
 mysqli_select_db($conn, $dbname);
 ?>

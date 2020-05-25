@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="utf-8">
-    <title>PHP Insert values to MySQL database</title>
+    <title>A small mess portal</title>
   </head>
 
   <body>
@@ -24,6 +24,18 @@
           </td>
         </tr>
         <tr>
+          <td>
+            <label for="start_date">Start Date:</label>
+            <input type="date" id="start_date" name="start_date">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="end_date">End Date:</label>
+            <input type="date" id="end_date" name="end_date">
+          </td>
+        </tr>
+        <tr>
           <td><input type="submit" name="submit"></td>
         </tr>
 
@@ -37,8 +49,17 @@
       include "./dbconfig.php";
       $email_email = $_POST["email_input"];
       $mess_mess = $_POST["mess_input"];
+      $start_date = $_POST["start_date"];
+      $end_date = $_POST["end_date"];
 
-      mysqli_query($conn, "INSERT INTO demo_table (email,mess) VALUES ('$email_email','$mess_mess')");
+      $sql = "INSERT INTO demo_table4 (email,mess,date) VALUES ('$email_email','$mess_mess','$start_date');";
+      while (strtotime($start_date) < strtotime($end_date)) {
+        // echo "$start_date \n";
+        $start_date = date("Y-m-d", strtotime("+1 day", strtotime($start_date)));
+        $sql .= "INSERT INTO demo_table4 (email,mess,date) VALUES ('$email_email','$mess_mess','$start_date');";
+      }
+      mysqli_multi_query($conn, $sql);
+      // echo "$sql \n";
       // mysqli_query($conn,"INSERT INTO demo_table "); 
 
       echo " Added Successfully ";
