@@ -20,6 +20,7 @@ if (isset($_POST["Create_New"])) {
     // mysqli_query($conn,"INSERT INTO demo_table "); 
 
     echo " Added Successfully ";
+    sleep(1);
   }
 
 

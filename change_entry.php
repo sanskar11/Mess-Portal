@@ -16,4 +16,5 @@ if (isset($_POST["Change_Entry"])) {
     // echo "$sql \n";
     mysqli_multi_query($conn,$sql);
     echo "UPDATE successful";
+    sleep(1);
 }
