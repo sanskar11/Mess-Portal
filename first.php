@@ -9,7 +9,7 @@
   <body>
 
     <table>
-      <form action="" method="post">
+      <form action="new_entry.php" method="post">
         <tr>
           <td> email : </td>
           <td><input type="email" name="email_input"></td>
@@ -36,35 +36,44 @@
           </td>
         </tr>
         <tr>
-          <td><input type="submit" name="submit"></td>
+          <td><input type="submit" name="submit" value="submit"></td>
         </tr>
 
       </form>
+
+      <!-- <form action="" method="post"> -->
     </table>
 
+    <?php
+    include "./new_entry.php";
 
+    ?>
 
     <?php
-    if (isset($_POST["submit"])) {
-      include "./dbconfig.php";
-      $email_email = $_POST["email_input"];
-      $mess_mess = $_POST["mess_input"];
-      $start_date = $_POST["start_date"];
-      $end_date = $_POST["end_date"];
-
-      $sql = "INSERT INTO demo_table4 (email,mess,date) VALUES ('$email_email','$mess_mess','$start_date');";
-      while (strtotime($start_date) < strtotime($end_date)) {
-        // echo "$start_date \n";
-        $start_date = date("Y-m-d", strtotime("+1 day", strtotime($start_date)));
-        $sql .= "INSERT INTO demo_table4 (email,mess,date) VALUES ('$email_email','$mess_mess','$start_date');";
+    include "./dbconfig.php";
+    $dis = mysqli_query($conn, "SELECT * FROM demo_table5;");
+    // echo "$dis \n";
+    if ($dis == true) {
+      if (mysqli_num_rows($dis) > 0) {
+        // output data of each row
+        while ($row = mysqli_fetch_assoc($dis)) {
+          echo "Email:" . $row["email"] . " Mess " . $row["mess"] . " Date " . $row["date"] . "<br>";
+        }
+      } else {
+        $query = "CREATE TABLE demo_table5(
+          email VARCHAR(30) NOT NULL,
+          mess VARCHAR(30) NOT NULL,
+          date DATE NOT NULL);";
+        mysqli_query($conn, $query);
       }
-      mysqli_multi_query($conn, $sql);
-      // echo "$sql \n";
-      // mysqli_query($conn,"INSERT INTO demo_table "); 
-
-      echo " Added Successfully ";
+    } else {
+      echo "error: " . mysqli_error($conn);
+      $query = "CREATE TABLE demo_table5(
+        email VARCHAR(30) NOT NULL,
+        mess VARCHAR(30) NOT NULL,
+        date DATE NOT NULL);";
+      mysqli_query($conn, $query);
     }
-
     ?>
 
   </body>
