@@ -9,6 +9,8 @@
   <body>
 
     <table>
+
+      <h1>CREATE NEW ENTRY:</h1>
       <form action="new_entry.php" method="post">
         <tr>
           <td> email : </td>
@@ -36,10 +38,41 @@
           </td>
         </tr>
         <tr>
-          <td><input type="submit" name="submit" value="submit"></td>
+          <td><input type="submit" name="Create_New" value="submit"></td>
         </tr>
 
       </form>
+
+      <br><br>
+      <table>
+        <h1>CHANGE EXISTING ENTRY:</h1>
+        <form action="change_entry.php" method="post">
+          <tr>
+            <td>email:</td>
+            <td><input type="email" name="email_to_change"></td>
+          </tr>
+          <tr>
+            <td>Mess:</td>
+            <td><select id="mess" name="mess_to_change">
+                <option value="North">North</option>
+                <option value="South">South</option>
+                <option value="Yuktahaar">Yuktahaar</option>
+                <option value="Kadambh">Kadambh</option>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="start_date">Date:</label>
+              <input type="date" id="date" name="date_to_change">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="submit" name="Change_Entry" value="submit">
+            </td>
+          </tr>
+        </form>
+      </table>
 
       <!-- <form action="" method="post"> -->
     </table>
@@ -47,6 +80,9 @@
     <?php
     include "./new_entry.php";
 
+    ?>
+    <?php
+    include "./change_entry.php";
     ?>
 
     <?php

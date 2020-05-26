@@ -1,7 +1,7 @@
 
 <?php
 // echo 'yeahh yaha toh hain';
-if (isset($_POST["submit"])) {
+if (isset($_POST["Create_New"])) {
     include "./dbconfig.php";
     // echo "IT IS REACHING HERE";
     $email_email = $_POST["email_input"];
