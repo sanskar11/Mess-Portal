@@ -4,16 +4,16 @@
 if (isset($_POST["Create_New"])) {
     include "./dbconfig.php";
     // echo "IT IS REACHING HERE";
-    $email_email = $_POST["email_input"];
+    $roll_roll = $_POST["roll_input"];
     $mess_mess = $_POST["mess_input"];
     $start_date = $_POST["start_date"];
     $end_date = $_POST["end_date"];
 
-    $sql = "INSERT INTO demo_table5 (email,mess,date) VALUES ('$email_email','$mess_mess','$start_date');";
+    $sql = "INSERT INTO demo_table1 (roll,mess,date) VALUES ('$roll_roll','$mess_mess','$start_date');";
     while (strtotime($start_date) < strtotime($end_date)) {
       // echo "$start_date \n";
       $start_date = date("Y-m-d", strtotime("+1 day", strtotime($start_date)));
-      $sql .= "INSERT INTO demo_table5 (email,mess,date) VALUES ('$email_email','$mess_mess','$start_date');";
+      $sql .= "INSERT INTO demo_table1 (roll,mess,date) VALUES ('$roll_roll','$mess_mess','$start_date');";
     }
     mysqli_multi_query($conn, $sql);
     // echo "$sql \n";

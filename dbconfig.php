@@ -7,7 +7,7 @@ $username = "sanskar";
 
 $password = "1234";
 
-$dbname = "test2";
+$dbname = "test3";
 
 $conn = mysqli_connect($hostname, $username, $password);
 
@@ -19,7 +19,7 @@ echo "connection successful<br>";
 $db_selected=mysqli_select_db($conn, $dbname);
 
 if (!$db_selected) {
-    $sql = 'CREATE DATABASE test2';
+    $sql = 'CREATE DATABASE test3';
     mysqli_query($conn,$sql);
     mysqli_select_db($conn, $dbname);
 }

@@ -13,8 +13,8 @@
       <h1>CREATE NEW ENTRY:</h1>
       <form action="new_entry.php" method="post">
         <tr>
-          <td> email : </td>
-          <td><input type="email" name="email_input"></td>
+          <td> roll : </td>
+          <td><input type="number" name="roll_input"></td>
         </tr>
         <tr>
           <td>Mess: </td>
@@ -49,8 +49,8 @@
       <h1>CHANGE EXISTING ENTRY:</h1>
       <form action="change_entry.php" method="post">
         <tr>
-          <td>email:</td>
-          <td><input type="email" name="email_to_change"></td>
+          <td>roll:</td>
+          <td><input type="number" name="roll_to_change"></td>
         </tr>
         <tr>
           <td>Mess:</td>
@@ -86,8 +86,8 @@
       <h1>DELETE EXISTING ENTRY:</h1>
       <form action="delete_entry.php" method="post">
         <tr>
-          <td>email:</td>
-          <td><input type="email" name="email_to_delete"></td>
+          <td>roll:</td>
+          <td><input type="number" name="roll_to_delete"></td>
         </tr>
         <tr>
           <td>
@@ -126,25 +126,21 @@
 
     <?php
     include "./dbconfig.php";
-    $dis = mysqli_query($conn, "SELECT * FROM demo_table5;");
+    $dis = mysqli_query($conn, "SELECT * FROM demo_table1;");
     // echo "$dis \n";
     if ($dis == true) {
       if (mysqli_num_rows($dis) > 0) {
         // output data of each row
         while ($row = mysqli_fetch_assoc($dis)) {
-          echo "Email:" . $row["email"] . " Mess " . $row["mess"] . " Date " . $row["date"] . "<br>";
+          echo "roll:" . $row["roll"] . " Mess " . $row["mess"] . " Date " . $row["date"] . "<br>";
         }
       } else {
-        $query = "CREATE TABLE demo_table5(
-          email VARCHAR(30) NOT NULL,
-          mess VARCHAR(30) NOT NULL,
-          date DATE NOT NULL);";
-        mysqli_query($conn, $query);
+        echo "0 results found\n";
       }
     } else {
       echo "error: " . mysqli_error($conn);
-      $query = "CREATE TABLE demo_table5(
-        email VARCHAR(30) NOT NULL,
+      $query = "CREATE TABLE demo_table1(
+        roll INT(30) NOT NULL,
         mess VARCHAR(30) NOT NULL,
         date DATE NOT NULL);";
       mysqli_query($conn, $query);
