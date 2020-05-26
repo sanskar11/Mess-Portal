@@ -81,6 +81,35 @@
       </form>
     </table>
 
+    <br><br>
+    <table>
+      <h1>DELETE EXISTING ENTRY:</h1>
+      <form action="delete_entry.php" method="post">
+        <tr>
+          <td>email:</td>
+          <td><input type="email" name="email_to_delete"></td>
+        </tr>
+        <tr>
+          <td>
+            <label for="start_date">Start Date:</label>
+            <input type="date" id="date" name="start_date_to_delete">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="start_date">End Date:</label>
+            <input type="date" id="date" name="end_date_to_delete">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="submit" name="Delete_Entry" value="submit">
+          </td>
+        </tr>
+      </form>
+    </table>
+
+
     <!-- <form action="" method="post"> -->
 
     <?php
@@ -89,6 +118,10 @@
     ?>
     <?php
     include "./change_entry.php";
+    ?>
+
+    <?php
+    include "./delete_entry.php";
     ?>
 
     <?php
