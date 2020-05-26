@@ -42,6 +42,7 @@
         </tr>
 
       </form>
+      </table>
 
       <br><br>
       <table>
@@ -75,7 +76,6 @@
       </table>
 
       <!-- <form action="" method="post"> -->
-    </table>
 
     <?php
     include "./new_entry.php";
