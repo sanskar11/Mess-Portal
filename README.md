@@ -6,7 +6,7 @@ I have tried to build a Mini Mess Portal in which students can:
   * cancel mess registration
   * uncancel mess registration
   
-  Database will be diplay the mess registration below the page.
+  Database will diplay the mess registration below the page.
   
   Database(test3) and table(demo_table1) will be automatically created when the code is run for the first time.
   
