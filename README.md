@@ -1,6 +1,6 @@
 # Learn php
 
-I have tried to build a Mini Mess Portal in which students can: 
+We tried to build a Mini Mess Portal in which students can: 
   * add new mess registration
   * change existing mess registration
   * cancel mess registration
