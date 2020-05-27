@@ -3,17 +3,17 @@
 
   <head>
     <meta charset="utf-8">
-    <title>A small mess portal</title>
+    <title>Mini Mess Portal</title>
   </head>
 
   <body>
 
     <table>
 
-      <h1>CREATE NEW ENTRY:</h1>
+      <h1>REGISTER MESS:</h1>
       <form action="new_entry.php" method="post">
         <tr>
-          <td> roll : </td>
+          <td> Roll Number : </td>
           <td><input type="number" name="roll_input"></td>
         </tr>
         <tr>
@@ -46,10 +46,10 @@
 
     <br><br>
     <table>
-      <h1>CHANGE EXISTING ENTRY:</h1>
+      <h1>CHANGE MESS REGISTRATION:</h1>
       <form action="change_entry.php" method="post">
         <tr>
-          <td>roll:</td>
+          <td>Roll Number:</td>
           <td><input type="number" name="roll_to_change"></td>
         </tr>
         <tr>
@@ -83,10 +83,10 @@
 
     <br><br>
     <table>
-      <h1>DELETE EXISTING ENTRY:</h1>
+      <h1>CANCEL MESS REGISTRATION:</h1>
       <form action="delete_entry.php" method="post">
         <tr>
-          <td>roll:</td>
+          <td>Roll Number:</td>
           <td><input type="number" name="roll_to_delete"></td>
         </tr>
         <tr>
@@ -99,6 +99,12 @@
           <td>
             <label for="start_date">End Date:</label>
             <input type="date" id="date" name="end_date_to_delete">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="uncancel">Uncancel Mess Registration</label>
+            <input type="checkbox" name="uncancel_checkbox">
           </td>
         </tr>
         <tr>
@@ -142,7 +148,8 @@
       $query = "CREATE TABLE demo_table1(
         roll INT(30) NOT NULL,
         mess VARCHAR(30) NOT NULL,
-        date DATE NOT NULL);";
+        date DATE NOT NULL,
+        cancel INT(1) NOT NULL);";
       mysqli_query($conn, $query);
     }
     ?>
